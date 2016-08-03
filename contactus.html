@@ -11,14 +11,20 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
 	<script   src="http://code.jquery.com/jquery-1.11.0.min.js"   integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="   crossorigin="anonymous"></script>
 	
 	<script   src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
-	<script src="js/jquery.mobilemenu.js"></script>
+	
 	<script>
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
+            $("input").checkboxradio();
+            $(".widget input[type=submit], .widget a, .widget button" ).button();
+            $("input[type=button]").click(function(event) {
+                event.preventDefault();
+                window.console.log("helloo!");
+                $("#dialog").dialog();
+            });
 		});
 	</script>
 </head>
@@ -44,8 +50,11 @@
 		
 		<section id="welcome" class="eleven columns">
 			<h4>Contact Us</h4>
-			<form name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
-				<fieldset>
+			
+            <form name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
+            
+                <fieldset>
+                <div class="widget">
 			    <legend>Contact a Sales Representative</legend>
 			    Name:
 			    <input type="text" name="name" maxlength="30" required="">
@@ -64,11 +73,16 @@
 			    
 			    <br>
 			    What is your current infrastructure?<br>
-			    <label for="Mac"><input type="radio" name="infrastructure" value="Mac" id="Mac">Mac</label>
-			    <label for="Linux"><input type="radio" name="infrastructure" value="Linux" id="Linux">Linux</label>
-			    <label for="Unix"><input type="radio" name="infrastructure" value="Unix" id="Unix">Unix</label>
-			    <label for="Windows"><input type="radio" name="infrastructure" value="Windows" id="Windows">Windows</label>
-
+			    
+			    <label for="Mac">
+			    <input type="radio" name="infrastructure" value="Mac" id="Mac">Mac</label>
+			    <label for="Linux">
+			    <input type="radio" name="infrastructure" value="Linux" id="Linux">Linux</label>
+			    <label for="Unix">
+			    <input type="radio" name="infrastructure" value="Unix" id="Unix">Unix</label>
+			    <label for="Windows">
+               <input type="radio" name="infrastructure" value="Windows" id="Windows">Windows</label>
+                
 			    <br>
 			    How many employees do you have?
 			    <select name="companysize">
@@ -89,11 +103,18 @@
                 
 			    Questions or comments for our sales representatives?
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input type="submit" name="submit" value="Submit Now">
+			    
+			    <input type="submit" name="submit" value="Submit Now" class="ui-button ui-widget ui-corner-all" />
+			    
+		    	</div>
 		    	</fieldset>
+		  
 			</form>
+    
 	    </section>
-		
+		<div id="dialog" title="Basic dialog">
+          <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+        </div>
 		<section id="testimonials" class="five columns">
 			<h4>Map</h4>
 			<p>&nbsp;</p>
