@@ -7,16 +7,49 @@
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/layout.css">
+	<style type="text/css">
+        #tabs ul{
+            margin-bottom: 0;
+        }
+        #tabs li {
+            display: inline-block;
+        }
+        #tabs a {
+            text-decoration: none;
+            padding: .5em;
+            display: inline-block;
+            background-color: gainsboro;
+            border-radius: 25% 25% 0 0;
+        }
+        .ui-tabs-active {
+            border-bottom: solid 1px red;
+        }
+        #accordion h3 {
+            text-align: center;
+            font-size: 1em;
+            padding: .15em;
+            background-color: gainsboro;
+            border-radius: 50px;
+            border-top: solid 1px #000;
+        }
+    </style>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script   src="http://code.jquery.com/jquery-1.11.0.min.js"   integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="   crossorigin="anonymous"></script>
+	
+	<script   src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+	
 	<script src="js/jquery.mobilemenu.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
+            $('#tabs' ).tabs();
+            $( "#accordion" ).accordion({
+                collapsible: true
+            });
 		});
 	</script>
 </head>
@@ -48,14 +81,42 @@
 		
 		<section id="solutions" class="six columns">
 			<h4>Our Solutions</h4> 
-			
-			<!-- INSERT TABS HERE -->
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">vProspect 2.0</a></li>
+                    <li><a href="#tabs-2">vConvert 2.0</a></li>
+                    <li><a href="#tabs-3">vRetain 1.0</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>Define and research your target audience, define your strategy to reach that audience and present a strong and memorable brand to that audience.</p>
+                </div>
+                <div id="tabs-2">
+                    <p>Create a highly user-friendly and easy-to-navigate information architecture that will help your prospects interact with the company on a highly interactive level.</p>
+                </div>
+                <div id="tabs-3">
+                    <p>Build on existing customer relationships to improve productivity and maximize customer loyalty, while growing revenues.</p>
+                </div>
+            </div>
 		</section>
 		
 		<section id="testimonials" class="five columns">
 			<h4>Client Testimonials</h4>
-
-			<!-- INSERT ACCORDION HERE -->
+            <div id="accordion">
+                <h3>Amazing Level of Dedication</h3>
+                <div>
+                    <p>Throughout the years we have worked with Vecta Corporation, we have always been amazed at the level of dedication and professionalism that they have provided us and our WGDC products. It is this commitment that has increased both our income and exposure exponentially.</p>
+                    <p>Iona Ford <br />
+                    President <br />
+                    Chevy Dealers Association</p>
+                </div>
+                <h3>Incredible Results</h3>
+                <div>
+                    <p>Incredible results from an incredible effort by the Vecta Corporation team! We are very pleased with the business benefits we have received by working with them. <p>
+                    <p>Robin Banks <br />
+                    CEO <br />
+                    Profits Financial, Inc.</p>
+                </div>
+            </div>
 		</section>
 	</main>
 </body>
